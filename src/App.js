@@ -53,7 +53,6 @@ function App() {
         <div>
           <input
             type="text"
-            // placeholder="Please enter a location"
             value={location}
             className="w-80 text-black pl-1"
             onClick={() => {

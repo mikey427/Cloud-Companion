@@ -39,7 +39,7 @@ function WeatherCardSmall(weatherData) {
             src={"https://" + weatherData.condition.icon.slice(2)}
             alt="IMG not found"
           ></img>
-          <h3 className="text-2xl h-16">
+          <h3 className="text-lg font-bold h-16">
             {weatherData.condition.text === "Patchy rain possible"
               ? "Scattered Showers"
               : weatherData.condition.text}
