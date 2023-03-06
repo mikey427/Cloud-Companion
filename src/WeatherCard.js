@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 function WeatherCard(weatherData) {
-  console.log(weatherData);
   const [date, setDate] = useState("");
   const [day, setDay] = useState("");
 

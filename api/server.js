@@ -29,7 +29,6 @@ const searchReq = {
 };
 
 app.get("/:location", async (req, res) => {
-  console.log(req.params.location);
   currentReq.params.q = req.params.location;
   const response = await axios.request(currentReq);
   const data = await response.data;
@@ -39,10 +38,8 @@ app.get("/:location", async (req, res) => {
 app.get("/search/:search", async (req, res) => {
   try {
     searchReq.params.q = req.params.search;
-    console.log(searchReq.params);
     const response = await axios.request(searchReq);
     const data = await response.data;
-    console.log(data);
     res.json(data);
   } catch (error) {
     res.send({

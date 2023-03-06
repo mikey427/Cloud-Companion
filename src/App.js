@@ -18,14 +18,11 @@ function App() {
       "http://localhost:3001/" + new URLSearchParams(query)
     );
     data = await res.json();
-    console.log(data);
     setWeatherData(data);
-    // console.log(await weatherData.forecast);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(location);
   }
 
   async function search(event) {
@@ -36,7 +33,6 @@ function App() {
             new URLSearchParams(event.target.value)
         );
         data = await res.json();
-        // console.log(data);
         setSearchResults([...data]);
       } catch (error) {
         console.log("Error");

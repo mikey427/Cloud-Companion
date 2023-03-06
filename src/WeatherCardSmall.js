@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 
 function WeatherCardSmall(weatherData) {
-  //   console.log("small");
-  console.log(weatherData, "small");
   const [date, setDate] = useState("");
   const [day, setDay] = useState("");
 
@@ -54,13 +52,6 @@ function WeatherCardSmall(weatherData) {
           <p className="flex justify-end">{date}</p>
           <p className="flex justify-end">{day}</p>
         </div>
-        {/* {current && ( */}
-        {
-          //   <div className="flex justify-end m-2 ml-12">
-          //     Feels like {Math.round(weatherData.current.feelslike_f)}°
-          //   </div>
-        }
-        {/* )} */}
       </div>
     </div>
   ) : (
