@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import "./App.css";
 import "./WeatherCard";
 import WeatherCard from "./WeatherCard";
 import Header from "./Header";
