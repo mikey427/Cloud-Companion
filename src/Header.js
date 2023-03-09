@@ -1,4 +1,13 @@
-function Header() {
+import { useState, useEffect } from "react";
+
+function Header(settings) {
+  const [isSettings, setIsSettings] = useState(false);
+
+  useEffect(() => {
+    console.log(settings);
+    setIsSettings(settings.settings);
+  }, []);
+
   return (
     <header className="flex justify-between">
       <div className="flex mt-6">
@@ -103,24 +112,32 @@ c-23 -25 -41 -48 -42 -52 0 -3 13 -19 28 -35 16 -15 33 -37 40 -48 9 -16 13
         </svg>
         <h1 className="text-6xl ml-2 my-auto font-bold">Cloud Companion</h1>
       </div>
-
-      <a href="/settings">
-        <svg
-          className="h-12 w-12 mt-12 mr-12"
-          version="1.0"
-          xmlns="http://www.w3.org/2000/svg"
-          width="512.000000pt"
-          height="512.000000pt"
-          viewBox="0 0 512.000000 512.000000"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <g
-            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-            fill="#ffffff"
-            stroke="none"
+      {settings.settings ? (
+        <a href="/">
+          <img
+            className="h-12 w-12 mt-12 mr-12"
+            src={process.env.PUBLIC_URL + "backButton.png"}
+            alt=""
+          ></img>
+        </a>
+      ) : (
+        <a href="/settings">
+          <svg
+            className="h-12 w-12 mt-12 mr-12"
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="512.000000pt"
+            height="512.000000pt"
+            viewBox="0 0 512.000000 512.000000"
+            preserveAspectRatio="xMidYMid meet"
           >
-            <path
-              d="M2245 5111 c-50 -13 -112 -49 -151 -88 -65 -64 -81 -117 -111 -354
+            <g
+              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              fill="#ffffff"
+              stroke="none"
+            >
+              <path
+                d="M2245 5111 c-50 -13 -112 -49 -151 -88 -65 -64 -81 -117 -111 -354
 -14 -118 -31 -219 -36 -226 -5 -7 -25 -17 -45 -23 -20 -7 -83 -32 -140 -57
 l-103 -46 -37 30 c-173 137 -304 234 -342 253 -61 31 -159 38 -236 15 -57 -16
 -67 -25 -291 -248 -223 -224 -232 -234 -248 -291 -23 -78 -16 -175 15 -236 13
@@ -148,10 +165,11 @@ c15 -31 43 -73 64 -94 66 -66 118 -82 356 -112 118 -14 219 -31 226 -36 7 -5
 -14 229 -44 335 -94 238 -112 409 -283 520 -519 192 -407 102 -894 -223 -1209
 -322 -311 -790 -392 -1188 -204 -121 58 -203 114 -296 204 -325 315 -415 802
 -223 1209 176 372 538 609 950 622 22 0 78 -4 125 -9z"
-            />
-          </g>
-        </svg>
-      </a>
+              />
+            </g>
+          </svg>
+        </a>
+      )}
     </header>
   );
 }

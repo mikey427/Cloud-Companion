@@ -1,4 +1,61 @@
+import { useState, useEffect } from "react";
+
 function Locations(weatherData) {
+  const [locationData1, setLocationData1] = useState("");
+  const [locationData2, setLocationData2] = useState("");
+  const [locationData3, setLocationData3] = useState("");
+
+  function fetchWeather() {
+    let locations = localStorage.getItem("locations");
+    locations = JSON.parse(locations);
+    console.log(typeof locations);
+    if (localStorage.getItem("locations")) {
+      locations.forEach(async (location, i) => {
+        const res = await fetch("http://localhost:3001/location/" + location);
+        let data = await res.json();
+        if (i === 0) {
+          setLocationData1(setDateAndDay(data));
+        } else if (i === 1) {
+          setLocationData2(setDateAndDay(data));
+        } else {
+          setLocationData3(setDateAndDay(data));
+        }
+      });
+    }
+  }
+
+  function setDateAndDay(weatherData, i = 0) {
+    const options = {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    };
+    let date = new Date(weatherData?.location?.localtime.split(" ")[0]);
+    date = new Date(date.setDate(date.getDate()));
+
+    let tempData = weatherData;
+    tempData["date"] = date.toLocaleDateString("en-US", options);
+    return tempData;
+    // if (current) {
+    //   let date = new Date(weatherData?.location?.localtime.split(" ")[0]);
+    //   date = new Date(date.setDate(date.getDate()));
+    // const day = date.getDay();
+    //   setDate(date.toLocaleDateString("en-US", { timeZone: "UTC" }));
+    //   setDay(days[day]);
+    // } else {
+    //   let date = new Date(weatherData?.date);
+    //   date = new Date(date.setDate(date.getDate()));
+    //   const day = date.getDay();
+    //   return {
+    //     date: date.toLocaleDateString("en-US", { timeZone: "UTC" }),
+    //     day: days[day],
+    //   };
+    // }
+  }
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
   const weatherData1 = {
     location: {
       name: "Toms River",
@@ -42,15 +99,19 @@ function Locations(weatherData) {
   };
   return (
     <div className="flex flex-col w-2/5 h-full">
-      <div className="flex flex-col w-full h-full my-auto justify-center">
+      <div className="flex flex-col w-full h-full mt-6">
         <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-900">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">Rainy</h2>
-            <h1 className="text-7xl font-bold">25°</h1>
+            <h2 className="text-2xl font-bold">
+              {locationData1?.current?.condition?.text}
+            </h2>
+            <h1 className="text-7xl font-bold">{`${Math.round(
+              locationData1?.current?.temp_f
+            )}°`}</h1>
           </div>
           <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
           <div className="flex flex-col my-auto ml-6 text-xl">
-            <h3>Wednesday September 11</h3>
+            <h3>{`${locationData1?.date}`}</h3>
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
@@ -77,23 +138,31 @@ function Locations(weatherData) {
                   />
                 </g>
               </svg>
-              <h3>Tokyo</h3>
+              <h3>{`${locationData1?.location?.name}, ${
+                locationData1?.location?.country === "United States of America"
+                  ? locationData1?.location?.region
+                  : locationData1?.location?.country
+              }`}</h3>
             </div>
           </div>
           <img
             className="my-auto w-24 h-24 mx-auto"
-            src={"https://" + weatherData1.current.condition.icon.slice(2)}
+            src={"https://" + locationData1?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>
         </div>
         <div className="flex ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-gradient-to-l from-green-600 to-green-900">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">Rainy</h2>
-            <h1 className="text-7xl font-bold">25°</h1>
+            <h2 className="text-2xl font-bold">
+              {locationData2?.current?.condition?.text}
+            </h2>
+            <h1 className="text-7xl font-bold">{`${Math.round(
+              locationData2?.current?.temp_f
+            )}°`}</h1>
           </div>
           <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
           <div className="flex flex-col my-auto ml-6 text-xl">
-            <h3>Wednesday September 11</h3>
+            <h3>{locationData2?.date}</h3>
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
@@ -120,23 +189,31 @@ function Locations(weatherData) {
                   />
                 </g>
               </svg>
-              <h3>Tokyo</h3>
+              <h3>{`${locationData2?.location?.name}, ${
+                locationData2?.location?.country === "United States of America"
+                  ? locationData2?.location?.region
+                  : locationData2?.location?.country
+              }`}</h3>
             </div>
           </div>
           <img
             className="my-auto w-24 h-24 mx-auto"
-            src={"https://" + weatherData1.current.condition.icon.slice(2)}
+            src={"https://" + locationData2?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>
         </div>
         <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-800">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">Rainy</h2>
-            <h1 className="text-7xl font-bold">25°</h1>
+            <h2 className="text-2xl font-bold">
+              {locationData3?.current?.condition?.text}
+            </h2>
+            <h1 className="text-7xl font-bold">
+              {`${Math.round(locationData3?.current?.temp_f)}°`}
+            </h1>
           </div>
           <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
           <div className="flex flex-col my-auto ml-6 text-xl">
-            <h3>Wednesday September 11</h3>
+            <h3>{locationData3?.date}</h3>
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
@@ -163,12 +240,16 @@ function Locations(weatherData) {
                   />
                 </g>
               </svg>
-              <h3>London</h3>
+              <h3>{`${locationData3?.location?.name}, ${
+                locationData3?.location?.country === "United States of America"
+                  ? locationData3?.location?.region
+                  : locationData3?.location?.country
+              }`}</h3>
             </div>
           </div>
           <img
             className="my-auto w-24 h-24 mx-auto"
-            src={"https://" + weatherData1.current.condition.icon.slice(2)}
+            src={"https://" + locationData3?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>
         </div>

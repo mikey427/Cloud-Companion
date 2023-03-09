@@ -28,12 +28,12 @@ const searchReq = {
   },
 };
 
-app.get("/:location", async (req, res) => {
+app.get("/location/:location", async (req, res) => {
   try {
     console.log(req.params.location);
     currentReq.params.q = req.params.location;
     const response = await axios.request(currentReq);
-    const data = await response.data;
+    const data = response.data;
     res.json(data);
   } catch (error) {
     res.send({

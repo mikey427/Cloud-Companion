@@ -69,14 +69,14 @@ function Settings() {
 
   return (
     <div className="flex flex-col bg-gradient-to-tl from-green-600 to-green-900 w-screen h-screen text-white">
-      <Header />
+      <Header settings={true} />
       <h1 className="text-3xl font-bold mx-auto">Saved locations</h1>
       <div className="flex flex-col mx-auto w-1/5 mt-6">
         {locations
           ? locations.map((location, i) => {
               return (
                 <div
-                  className="flex border justify-between rounded-3xl h-16"
+                  className="flex bg-gradient-to-br from-green-600 to-green-900 my-2 shadow-lg justify-between rounded-3xl h-16"
                   key={i}
                 >
                   <h1 className="my-auto ml-6">{location}</h1>
@@ -94,13 +94,13 @@ function Settings() {
                     {editing && editingCard === location ? (
                       <img
                         className="w-6 h-6 my-auto mr-6"
-                        src={process.env.PUBLIC_URL + "xButton.png"}
+                        src={process.env.PUBLIC_URL + "xWhite.png"}
                         alt="IMG NOT FOUND"
                       ></img>
                     ) : (
                       <img
                         className="w-6 h-6 my-auto mr-6"
-                        src={process.env.PUBLIC_URL + "editSymbol.png"}
+                        src={process.env.PUBLIC_URL + "editWhite.png"}
                         alt="IMG NOT FOUND"
                       ></img>
                     )}
@@ -116,7 +116,7 @@ function Settings() {
             <input
               type="text"
               value={location}
-              className="w-80 text-black pl-1"
+              className="w-80 text-black pl-3 rounded-l-3xl text-xl"
               onClick={() => {
                 setLocation("");
               }}
@@ -131,7 +131,7 @@ function Settings() {
             ></input>
             <button
               type="submit"
-              className="border border-black w-24"
+              className="border border-black w-24 rounded-r-3xl text-xl"
               onClick={() => {
                 updateLocations();
               }}
