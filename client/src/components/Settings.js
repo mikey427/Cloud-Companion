@@ -93,7 +93,7 @@ function Settings() {
       </div>
       {editing ? (
         <div className="mx-auto my-3">
-          <form className="mx-auto my-3" ref={form} onSubmit={handleSubmit}>
+          <form className="mx-auto mt-3" ref={form} onSubmit={handleSubmit}>
             <input
               type="text"
               value={location}
@@ -120,8 +120,8 @@ function Settings() {
               Save
             </button>
           </form>
-          <div className="bg-white text-black w-96 rounded-b-lg">
-            <ul className="flex flex-col mx-auto">
+          <div className="bg-white text-black w-96 rounded-b-lg rounded-tl-lg">
+            <ul className="flex flex-col">
               {searchResults.map((result, i) => {
                 return (
                   <li key={i}>
