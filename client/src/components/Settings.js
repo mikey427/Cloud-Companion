@@ -50,7 +50,7 @@ function Settings() {
   }
 
   return (
-    <div className="flex flex-col bg-gradient-to-tl from-green-600 to-green-900 w-screen h-screen text-white">
+    <div className="flex flex-col bg-mint text-sailorBlue w-screen h-screen">
       <Header settings={true} />
       <h1 className="text-3xl font-bold mx-auto">Saved locations</h1>
       <div className="flex flex-col mx-auto w-1/5 mt-6">
@@ -58,7 +58,7 @@ function Settings() {
           ? locations.map((location, i) => {
               return (
                 <div
-                  className="flex bg-gradient-to-br from-green-600 to-green-900 my-2 shadow-lg justify-between rounded-3xl h-16"
+                  className="flex bg-sailorBlue text-mint my-2 shadow-lg justify-between rounded-3xl h-16"
                   key={i}
                 >
                   <h1 className="my-auto ml-6">{location}</h1>
@@ -75,13 +75,13 @@ function Settings() {
                     {editing && editingCard === location ? (
                       <img
                         className="w-6 h-6 my-auto mr-6"
-                        src={process.env.PUBLIC_URL + "xWhite.png"}
+                        src={process.env.PUBLIC_URL + "xMint.png"}
                         alt="IMG NOT FOUND"
                       ></img>
                     ) : (
                       <img
                         className="w-6 h-6 my-auto mr-6"
-                        src={process.env.PUBLIC_URL + "editWhite.png"}
+                        src={process.env.PUBLIC_URL + "editMint.png"}
                         alt="IMG NOT FOUND"
                       ></img>
                     )}
@@ -112,7 +112,7 @@ function Settings() {
             ></input>
             <button
               type="submit"
-              className="border border-black w-24 rounded-r-3xl text-xl"
+              className="w-24 rounded-r-3xl text-xl bg-sailorBlue text-mint"
               onClick={() => {
                 updateLocations();
               }}

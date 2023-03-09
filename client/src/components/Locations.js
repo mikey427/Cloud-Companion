@@ -49,7 +49,7 @@ function Locations() {
   return (
     <div className="flex flex-col w-2/5 h-full">
       <div className="flex flex-col w-full h-full mt-6">
-        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-900">
+        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
             <h2 className="text-xl font-bold w-min">
               {locationData1?.current?.condition?.text ===
@@ -67,7 +67,7 @@ function Locations() {
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
-                fill="#ffffff"
+                fill="#ADEFD1"
                 height="800px"
                 width="800px"
                 version="1.1"
@@ -103,7 +103,7 @@ function Locations() {
             alt=""
           ></img>
         </div>
-        <div className="flex ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-gradient-to-l from-green-600 to-green-900">
+        <div className="flex ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
             <h2 className="text-xl font-bold w-min">
               {locationData2?.current?.condition?.text ===
@@ -121,7 +121,7 @@ function Locations() {
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
-                fill="#ffffff"
+                fill="#ADEFD1"
                 height="800px"
                 width="800px"
                 version="1.1"
@@ -157,7 +157,7 @@ function Locations() {
             alt=""
           ></img>
         </div>
-        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-800">
+        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
             <h2 className="text-xl font-bold w-min">
               {locationData3?.current?.condition?.text ===
@@ -175,7 +175,7 @@ function Locations() {
             <div className="flex">
               <svg
                 className="w-4 h-4 my-auto mr-1"
-                fill="#ffffff"
+                fill="#ADEFD1"
                 height="800px"
                 width="800px"
                 version="1.1"

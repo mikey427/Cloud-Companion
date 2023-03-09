@@ -41,6 +41,8 @@ function App() {
       } catch (error) {
         console.log("Error");
       }
+    } else {
+      setSearchResults([]);
     }
   }
 
@@ -63,14 +65,14 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col bg-gradient-to-tl from-green-600 to-green-900 w-screen h-screen text-white">
+    <div className="flex flex-col bg-mint w-screen h-screen text-sailorBlue">
       <Header settings={false} />
       <div className="mx-auto">
         <form className="" ref={form} onSubmit={handleSubmit}>
           <input
             type="text"
             value={location}
-            className="w-80 text-black pl-3 rounded-l-3xl text-xl"
+            className="w-80 text-black pl-3 rounded-l-3xl text-xl "
             onClick={() => {
               setLocation("");
             }}
@@ -85,7 +87,7 @@ function App() {
           ></input>
           <button
             type="submit"
-            className="border border-black w-24 rounded-r-3xl text-xl"
+            className="w-24 rounded-r-3xl text-xl bg-sailorBlue text-mint"
             onClick={() => {
               localStorage.setItem("location", location);
               fetchWeather();

@@ -39,7 +39,7 @@ function WeatherCard(weatherData) {
   });
 
   return weatherData?.current ? (
-    <div className="flex flex-col mt-6 text-white w-1/4 h-min rounded-3xl shadow-lg bg-opacity-90 bg-gradient-to-tr from-green-600 to-green-900">
+    <div className="flex flex-col mt-6 w-1/4 h-min rounded-3xl shadow-lg bg-opacity-90 bg-sailorBlue text-mint">
       <div className="flex">
         <div className="flex flex-col w-full ml-12">
           <img
@@ -67,7 +67,7 @@ function WeatherCard(weatherData) {
           <div className="flex align-middle">
             <svg
               className="w-4 h-4 my-auto mr-1"
-              fill="#ffffff"
+              fill="#ADEFD1"
               height="800px"
               width="800px"
               version="1.1"
