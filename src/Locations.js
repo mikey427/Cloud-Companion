@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 
-function Locations(weatherData) {
+function Locations() {
+  // Initializing state
   const [locationData1, setLocationData1] = useState("");
   const [locationData2, setLocationData2] = useState("");
   const [locationData3, setLocationData3] = useState("");
 
+  // Fetches weather data for all 3 locations stored in localStorage
   function fetchWeather() {
     let locations = localStorage.getItem("locations");
     locations = JSON.parse(locations);
-    console.log(typeof locations);
     if (localStorage.getItem("locations")) {
       locations.forEach(async (location, i) => {
         const res = await fetch("http://localhost:3001/location/" + location);
@@ -24,8 +25,10 @@ function Locations(weatherData) {
     }
   }
 
+  // Parses the date and time for all 3 locations
   function setDateAndDay(weatherData, i = 0) {
     const options = {
+      timeZone: "UTC",
       weekday: "long",
       month: "long",
       day: "numeric",
@@ -36,74 +39,23 @@ function Locations(weatherData) {
     let tempData = weatherData;
     tempData["date"] = date.toLocaleDateString("en-US", options);
     return tempData;
-    // if (current) {
-    //   let date = new Date(weatherData?.location?.localtime.split(" ")[0]);
-    //   date = new Date(date.setDate(date.getDate()));
-    // const day = date.getDay();
-    //   setDate(date.toLocaleDateString("en-US", { timeZone: "UTC" }));
-    //   setDay(days[day]);
-    // } else {
-    //   let date = new Date(weatherData?.date);
-    //   date = new Date(date.setDate(date.getDate()));
-    //   const day = date.getDay();
-    //   return {
-    //     date: date.toLocaleDateString("en-US", { timeZone: "UTC" }),
-    //     day: days[day],
-    //   };
-    // }
   }
 
+  // useEffect to fetch locations' weather data
   useEffect(() => {
     fetchWeather();
   }, []);
-  const weatherData1 = {
-    location: {
-      name: "Toms River",
-      region: "New Jersey",
-      country: "United States of America",
-      lat: 39.95,
-      lon: -74.2,
-      tz_id: "America/New_York",
-      localtime_epoch: 1678075886,
-      localtime: "2023-03-05 23:11",
-    },
-    current: {
-      last_updated_epoch: 1678075200,
-      last_updated: "2023-03-05 23:00",
-      temp_c: 7.8,
-      temp_f: 46,
-      is_day: 0,
-      condition: {
-        text: "Clear",
-        icon: "//cdn.weatherapi.com/weather/64x64/night/113.png",
-        code: 1000,
-      },
-      wind_mph: 9.4,
-      wind_kph: 15.1,
-      wind_degree: 330,
-      wind_dir: "NNW",
-      pressure_mb: 1023,
-      pressure_in: 30.22,
-      precip_mm: 0,
-      precip_in: 0,
-      humidity: 47,
-      cloud: 0,
-      feelslike_c: 4.9,
-      feelslike_f: 40.8,
-      vis_km: 16,
-      vis_miles: 9,
-      uv: 1,
-      gust_mph: 15,
-      gust_kph: 24.1,
-    },
-  };
+
   return (
     <div className="flex flex-col w-2/5 h-full">
       <div className="flex flex-col w-full h-full mt-6">
         <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-900">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">
-              {locationData1?.current?.condition?.text}
+            <h2 className="text-xl font-bold w-min">
+              {locationData1?.current?.condition?.text ===
+              "Patchy rain possible"
+                ? "Scattered Showers"
+                : locationData1?.current?.condition?.text}
             </h2>
             <h1 className="text-7xl font-bold">{`${Math.round(
               locationData1?.current?.temp_f
@@ -153,8 +105,11 @@ function Locations(weatherData) {
         </div>
         <div className="flex ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-gradient-to-l from-green-600 to-green-900">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">
-              {locationData2?.current?.condition?.text}
+            <h2 className="text-xl font-bold w-min">
+              {locationData2?.current?.condition?.text ===
+              "Patchy rain possible"
+                ? "Scattered Showers"
+                : locationData2?.current?.condition?.text}
             </h2>
             <h1 className="text-7xl font-bold">{`${Math.round(
               locationData2?.current?.temp_f
@@ -204,8 +159,11 @@ function Locations(weatherData) {
         </div>
         <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-gradient-to-l from-green-600 to-green-800">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-2xl font-bold">
-              {locationData3?.current?.condition?.text}
+            <h2 className="text-xl font-bold w-min">
+              {locationData3?.current?.condition?.text ===
+              "Patchy rain possible"
+                ? "Scattered Showers"
+                : locationData3?.current?.condition?.text}
             </h2>
             <h1 className="text-7xl font-bold">
               {`${Math.round(locationData3?.current?.temp_f)}°`}

@@ -1,44 +1,25 @@
 import Header from "./Header";
-import { useState, useRef, useEffect } from "react";
-
-var data;
+import { useState, useRef } from "react";
 
 function Settings() {
+  // Initializing state
   const [location, setLocation] = useState("Please enter a location");
   const [locations, setLocations] = useState(
     JSON.parse(localStorage.getItem("locations"))
   );
   const [editing, setEditing] = useState(false);
   const [editingCard, setEditingCard] = useState("");
-  const [weatherData, setWeatherData] = useState({});
   const [searchResults, setSearchResults] = useState([]);
 
-  const defaultLocations = [];
-
+  // useRef for form
   const form = useRef();
 
-  //   useEffect(() => {
-  //     //check if localStorage, if not set new
-  //   });
-
-  async function fetchWeather(query) {
-    let query1 = "Toms River, NJ";
-    const res = await fetch(
-      "http://localhost:3001/" + new URLSearchParams(query1)
-    );
-    data = await res.json();
-    setWeatherData(data);
-  }
-
+  // Keeps page from reloading on submit
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  function editButtonClick() {
-    setEditing(!editing);
-    console.log(editing);
-  }
-
+  // Updates specified location with chosen search result
   function updateLocations(event) {
     setLocation(event.target.value);
     let tempLocations = locations;
@@ -52,6 +33,7 @@ function Settings() {
     setSearchResults([]);
   }
 
+  // Fetches search results
   async function search(event) {
     if (event.target.value.length >= 2) {
       try {
@@ -59,7 +41,7 @@ function Settings() {
           "http://localhost:3001/search/" +
             new URLSearchParams(event.target.value)
         );
-        data = await res.json();
+        const data = await res.json();
         setSearchResults([...data]);
       } catch (error) {
         console.log("Error");
@@ -87,7 +69,6 @@ function Settings() {
                       } else {
                         setEditingCard(location);
                         setEditing(!editing);
-                        console.log(editing);
                       }
                     }}
                   >

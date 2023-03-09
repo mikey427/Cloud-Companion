@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
 
+// Forecast request to weather API
 const currentReq = {
   method: "GET",
   url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
@@ -18,6 +19,7 @@ const currentReq = {
   },
 };
 
+// Search request to weather API
 const searchReq = {
   method: "GET",
   url: "https://weatherapi-com.p.rapidapi.com/search.json",
@@ -28,9 +30,9 @@ const searchReq = {
   },
 };
 
+// GET endpoint for weather data
 app.get("/location/:location", async (req, res) => {
   try {
-    console.log(req.params.location);
     currentReq.params.q = req.params.location;
     const response = await axios.request(currentReq);
     const data = response.data;
@@ -43,6 +45,7 @@ app.get("/location/:location", async (req, res) => {
   }
 });
 
+// GET endpoint for search results
 app.get("/search/:search", async (req, res) => {
   try {
     searchReq.params.q = req.params.search;

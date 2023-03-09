@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
 function WeatherCard(weatherData) {
+  // Initializing State
   const [date, setDate] = useState("");
   const [day, setDay] = useState("");
 
+  // Getting date and day for main location
   function setDateAndDay(weatherData, i = 0, current = true) {
     const days = [
       "Sunday",
@@ -31,13 +33,13 @@ function WeatherCard(weatherData) {
     }
   }
 
+  // useEffect to get date and time data
   useEffect(() => {
     setDateAndDay(weatherData);
-    console.log(weatherData);
   });
 
   return weatherData?.current ? (
-    <div className="flex flex-col mt-6 text-white w-1/4 h-3/4 rounded-3xl shadow-lg bg-opacity-90 bg-gradient-to-tr from-green-600 to-green-900">
+    <div className="flex flex-col mt-6 text-white w-1/4 h-min rounded-3xl shadow-lg bg-opacity-90 bg-gradient-to-tr from-green-600 to-green-900">
       <div className="flex">
         <div className="flex flex-col w-full ml-12">
           <img
@@ -52,15 +54,17 @@ function WeatherCard(weatherData) {
           )}°`}</h2>
 
           <div className="flex w-full justify-between">
-            <h1 className="text-5xl font-bold">
-              {weatherData?.current?.condition.text}
+            <h1 className="text-4xl font-bold">
+              {weatherData?.current?.condition?.text === "Patchy rain possible"
+                ? "Scattered Showers"
+                : weatherData?.current?.condition?.text}
             </h1>
             <div className="flex flex-col mr-8">
               <h2>{day}</h2>
               <h2>{date}</h2>
             </div>
           </div>
-          <div className="flex align-middle mt-2">
+          <div className="flex align-middle">
             <svg
               className="w-4 h-4 my-auto mr-1"
               fill="#ffffff"
@@ -168,53 +172,6 @@ function WeatherCard(weatherData) {
       </div>
     </div>
   ) : null;
-  //   return weatherData.current ? (
-  //     <div className="text-lg text-black bg-purple-400 border border-black mx-auto w-72 h-80 rounded-2xl flex justify-between">
-  //       <div className="flex flex-col justify-between w-1/2 ml-2 my-2">
-  //         <div className="text-base">
-  //           <h3 className="">{`${weatherData.location.name}, `}</h3>
-  //           <h3>
-  //             {`${
-  //               weatherData.location.country === "United States of America"
-  //                 ? weatherData.location.region
-  //                 : weatherData.location.country
-  //             }
-  //             `}
-  //           </h3>
-  //           <h2 className="text-5xl">{`${Math.round(
-  //             weatherData.current.temp_f
-  //           )}°`}</h2>
-  //         </div>
-
-  //         <div className="m-2">
-  //           <img
-  //             className="w-24 h-24"
-  //             src={"https://" + weatherData.current.condition.icon.slice(2)}
-  //             alt="IMG not found"
-  //           ></img>
-  //           <h3 className="text-lg font-bold h-16">
-  //             {weatherData.current.condition.text === "Patchy rain possible"
-  //               ? "Scattered Showers"
-  //               : weatherData.current.condition.text}
-  //           </h3>
-  //         </div>
-  //       </div>
-
-  //       <div className="flex flex-col justify-between">
-  //         <div className="flex flex-col m-2">
-  //           <p className="flex justify-end">{date}</p>
-  //           <p className="flex justify-end">{day}</p>
-  //         </div>
-  //         {
-  //           <div className="flex justify-end m-2 ml-12">
-  //             Feels like {Math.round(weatherData.current.feelslike_f)}°
-  //           </div>
-  //         }
-  //       </div>
-  //     </div>
-  //   ) : (
-  //     <div></div>
-  //   );
 }
 
 export default WeatherCard;

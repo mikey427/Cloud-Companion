@@ -1,15 +1,19 @@
 import { useState, useRef } from "react";
 
 function SearchBar() {
+  // Initializing state
   const [location, setLocation] = useState("Please enter a location");
   const [searchResults, setSearchResults] = useState([]);
 
+  // useRef for form
   const form = useRef();
 
+  // Keeps page from reloading on submit
   function handleSubmit(event) {
     event.preventDefault();
   }
 
+  // Fetches search results
   async function search(event) {
     if (event.target.value.length >= 2) {
       try {

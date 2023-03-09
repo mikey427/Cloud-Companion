@@ -1,13 +1,4 @@
-import { useState, useEffect } from "react";
-
 function Header(settings) {
-  const [isSettings, setIsSettings] = useState(false);
-
-  useEffect(() => {
-    console.log(settings);
-    setIsSettings(settings.settings);
-  }, []);
-
   return (
     <header className="flex justify-between">
       <div className="flex mt-6">
