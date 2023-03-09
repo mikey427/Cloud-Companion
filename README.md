@@ -14,9 +14,8 @@ This is a weather app that displays the weather for 4 locations simultaneously w
 9. Enjoy your weather enlightenment!
 
 ## Images
-![WeatherApp1](https://user-images.githubusercontent.com/7595534/223982591-12c3ee0a-dce4-4d90-933d-48ce79ec7a18.JPG)
-![WeatherApp2](https://user-images.githubusercontent.com/7595534/223982592-6b6a9098-3db5-43d6-b933-ce110c6cc066.JPG)
-![WeatherApp3](https://user-images.githubusercontent.com/7595534/223982585-a73f2666-daa5-4a21-8412-c0dd7c1656bc.JPG)
-![WeatherApp4](https://user-images.githubusercontent.com/7595534/223982588-e385bd53-b3d5-494a-8da4-a5238fcbc4d9.JPG)
 
-
+![WeatherApp1](https://user-images.githubusercontent.com/7595534/224188199-449f864d-9632-4954-ac4d-6679ecaee14d.JPG)
+![WeatherApp2](https://user-images.githubusercontent.com/7595534/224188201-1b2ee7dc-5bde-4234-a087-c587f8293388.JPG)
+![WeatherApp3](https://user-images.githubusercontent.com/7595534/224188194-e8827ade-ed45-494c-8599-2c4936d53014.jpg)
+![WeatherApp4](https://user-images.githubusercontent.com/7595534/224188197-b4ed160a-c800-49a0-ab33-e727056524b8.jpg)
