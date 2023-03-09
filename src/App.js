@@ -95,7 +95,7 @@ function App() {
             Save
           </button>
         </form>
-        <div className="bg-white text-black w-96 rounded-b-lg">
+        <div className="bg-white text-black w-96 rounded-b-lg rounded-tl-lg">
           <ul className="flex flex-col mx-auto">
             {searchResults.map((result, i) => {
               return (
