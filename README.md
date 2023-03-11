@@ -1,6 +1,6 @@
 # Welcome to Cloud Companion
 
-This is a weather app that displays the weather for 4 locations simultaneously with the ability to change those locations. Your set locations are stored in localStorage so that way you don't have to enter your locations each time you enter the app. This app was built with a React front end with a Node backend while utilizing RapidApi's Weather API.
+This is a responsive weather app that displays the weather for 4 locations simultaneously with the ability to change those locations. Your set locations are stored in localStorage so that way you don't have to enter your locations each time you enter the app. This app was built with a React front end with a Node backend while utilizing RapidApi's Weather API.
 
 ## Setup Instructions
 1. Clone repo
