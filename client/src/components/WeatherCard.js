@@ -39,7 +39,7 @@ function WeatherCard(weatherData) {
   });
 
   return weatherData?.current ? (
-    <div className="flex flex-col mt-6 w-1/4 h-min rounded-3xl shadow-lg bg-opacity-90 bg-sailorBlue text-mint">
+    <div className="flex flex-col mt-6 w-screen sm:w-3/4 lg:w-2/4 mx-auto xl:mx-0 xl:w-1/4 h-min rounded-3xl shadow-lg bg-opacity-90 bg-sailorBlue text-mint">
       <div className="flex">
         <div className="flex flex-col w-full ml-12">
           <img
@@ -111,8 +111,8 @@ function WeatherCard(weatherData) {
               <li
                 className={
                   i === 2
-                    ? "flex justify-between w-80 mx-auto text-xl rounded-3xl border shadow-lg my-auto border-gray-400 border-opacity-70"
-                    : "flex justify-between mb-2 w-80 mx-auto text-xl rounded-3xl border shadow-lg my-auto border-gray-400 border-opacity-70"
+                    ? "flex justify-between w-4/5 xl:w-80 mx-auto text-xl rounded-3xl border shadow-lg my-auto border-gray-400 border-opacity-70"
+                    : "flex justify-between mb-2 w-4/5 xl:w-80 mx-auto text-xl rounded-3xl border shadow-lg my-auto border-gray-400 border-opacity-70"
                 }
                 key={i}
               >

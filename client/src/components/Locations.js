@@ -47,9 +47,9 @@ function Locations() {
   }, []);
 
   return (
-    <div className="flex flex-col w-2/5 h-full">
-      <div className="flex flex-col w-full h-full mt-6">
-        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
+    <div className="flex flex-col lg:w-4/5 xl:w-3/5 2xl:w-2/5 mx-auto xl:mx-0 h-full">
+      <div className="flex flex-col w-full h-full my-6">
+        <div className="flex  shadow-lg mx-auto xl:mx-0 xl:ml-32 w-5/6 sm:w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
             <h2 className="text-xl font-bold w-min">
               {locationData1?.current?.condition?.text ===
@@ -61,8 +61,8 @@ function Locations() {
               locationData1?.current?.temp_f
             )}°`}</h1>
           </div>
-          <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
-          <div className="flex flex-col my-auto ml-6 text-xl">
+          <hr className="w-px h-20 my-auto m-2 sm:ml-6 bg-gray-300 bg-opacity-30"></hr>
+          <div className="flex flex-col my-auto sm:ml-6 md:text-xl">
             <h3>{`${locationData1?.date}`}</h3>
             <div className="flex">
               <svg
@@ -90,7 +90,7 @@ function Locations() {
                   />
                 </g>
               </svg>
-              <h3>{`${locationData1?.location?.name}, ${
+              <h3 className="">{`${locationData1?.location?.name}, ${
                 locationData1?.location?.country === "United States of America"
                   ? locationData1?.location?.region
                   : locationData1?.location?.country
@@ -98,14 +98,14 @@ function Locations() {
             </div>
           </div>
           <img
-            className="my-auto w-24 h-24 mx-auto"
+            className="my-auto w-12 h-12 sm:w-24 sm:h-24 sm:mx-auto"
             src={"https://" + locationData1?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>
         </div>
-        <div className="flex ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-sailorBlue text-mint">
+        <div className="flex mx-auto xl:mx-0 xl:ml-12 shadow-lg w-4/4 h-1/4 rounded-3xl my-6 bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
-            <h2 className="text-xl font-bold w-min">
+            <h2 className="md:text-xl font-bold w-min">
               {locationData2?.current?.condition?.text ===
               "Patchy rain possible"
                 ? "Scattered Showers"
@@ -115,8 +115,8 @@ function Locations() {
               locationData2?.current?.temp_f
             )}°`}</h1>
           </div>
-          <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
-          <div className="flex flex-col my-auto ml-6 text-xl">
+          <hr className="w-px h-20 my-auto m-2 sm:ml-6 bg-gray-300 bg-opacity-30"></hr>
+          <div className="flex flex-col my-auto sm:ml-6 md:text-xl">
             <h3>{locationData2?.date}</h3>
             <div className="flex">
               <svg
@@ -152,12 +152,12 @@ function Locations() {
             </div>
           </div>
           <img
-            className="my-auto w-24 h-24 mx-auto"
+            className="my-auto w-24 h-24 sm:mx-auto"
             src={"https://" + locationData2?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>
         </div>
-        <div className="flex ml-32 shadow-lg w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
+        <div className="flex mx-auto xl:mx-0 xl:ml-32 shadow-lg w-5/6 sm:w-3/4 h-1/4 rounded-3xl bg-sailorBlue text-mint">
           <div className="flex flex-col my-auto ml-12 ">
             <h2 className="text-xl font-bold w-min">
               {locationData3?.current?.condition?.text ===
@@ -169,8 +169,8 @@ function Locations() {
               {`${Math.round(locationData3?.current?.temp_f)}°`}
             </h1>
           </div>
-          <hr className="w-px h-20 my-auto ml-6 bg-gray-300 bg-opacity-30"></hr>
-          <div className="flex flex-col my-auto ml-6 text-xl">
+          <hr className="w-px h-20 my-auto m-2 sm:ml-6 bg-gray-300 bg-opacity-30"></hr>
+          <div className="flex flex-col my-auto sm:ml-6 md:text-xl">
             <h3>{locationData3?.date}</h3>
             <div className="flex">
               <svg
@@ -206,7 +206,7 @@ function Locations() {
             </div>
           </div>
           <img
-            className="my-auto w-24 h-24 mx-auto"
+            className="my-auto w-12 h-12 sm:w-24 sm:h-24 sm:mx-auto"
             src={"https://" + locationData3?.current?.condition?.icon.slice(2)}
             alt=""
           ></img>

@@ -53,7 +53,7 @@ function Settings() {
     <div className="flex flex-col bg-mint text-sailorBlue w-screen h-screen">
       <Header settings={true} />
       <h1 className="text-3xl font-bold mx-auto">Saved locations</h1>
-      <div className="flex flex-col mx-auto w-1/5 mt-6">
+      <div className="flex flex-col mx-auto sm:w-1/5 mt-6">
         {locations
           ? locations.map((location, i) => {
               return (

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import "./WeatherCard";
 import WeatherCard from "./WeatherCard";
 import Header from "./Header";
 import Locations from "./Locations";
@@ -65,14 +64,14 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col bg-mint w-screen h-screen text-sailorBlue">
+    <div className="flex flex-col bg-mint w-screen h-full lg:h-screen xl:h-screen text-sailorBlue">
       <Header settings={false} />
       <div className="mx-auto">
-        <form className="" ref={form} onSubmit={handleSubmit}>
+        <form className="w-max mx-auto" ref={form} onSubmit={handleSubmit}>
           <input
             type="text"
             value={location}
-            className="w-80 text-black pl-3 rounded-l-3xl text-xl "
+            className="w-48 sm:w-80 text-black pl-3 rounded-l-3xl sm:text-xl mt-6 "
             onClick={() => {
               setLocation("");
             }}
@@ -131,7 +130,7 @@ function App() {
           </ul>
         </div>
       </div>
-      <div className="flex w-screen h-3/4 my-auto justify-center">
+      <div className="flex flex-col lg:flex-row w-screen h-3/4 my-auto justify-center">
         <WeatherCard {...weatherData} />
         <Locations />
       </div>

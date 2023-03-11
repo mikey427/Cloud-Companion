@@ -101,12 +101,14 @@ c-23 -25 -41 -48 -42 -52 0 -3 13 -19 28 -35 16 -15 33 -37 40 -48 9 -16 13
             <path d="M681 52 c-15 -27 -14 -32 4 -32 20 0 31 28 17 42 -7 7 -14 4 -21 -10z" />
           </g>
         </svg>
-        <h1 className="text-6xl ml-2 my-auto font-bold">Cloud Companion</h1>
+        <h1 className="text-2xl sm:text-6xl ml-2 my-auto font-bold">
+          Cloud Companion
+        </h1>
       </div>
       {settings.settings ? (
         <a href="/">
           <svg
-            className="h-14 w-14 mt-12 mr-12"
+            className="h-10 w-10 sm:h-14 sm:w-14 mt-12 mr-12"
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
             width="1024.000000pt"
@@ -137,7 +139,7 @@ c-23 -25 -41 -48 -42 -52 0 -3 13 -19 28 -35 16 -15 33 -37 40 -48 9 -16 13
       ) : (
         <a href="/settings">
           <svg
-            className="h-12 w-12 mt-12 mr-12"
+            className="h-10 w-10 sm:h-14 sm:w-14 mt-12 mr-12"
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
             width="512.000000pt"
